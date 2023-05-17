@@ -16,6 +16,8 @@ FROM quay.io/terraform-docs/terraform-docs:0.16.0
 
 # this is explicitly needed because yq v4.x only exists in this repo.
 RUN echo "http://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
+# https://www.alpinelinux.org/posts/Alpine-edge-signing-keys-rotated.html
+RUN apk add -X https://dl-cdn.alpinelinux.org/alpine/v3.16/main -u alpine-keys
 
 RUN set -x \
     && apk update \
